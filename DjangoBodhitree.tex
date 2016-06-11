@@ -1,0 +1,53 @@
+\section{Background}
+
+The development of Bodhitree is done using the Django web framework, the brief details of which are provided below.
+
+\subsection{Django Web Framework}
+
+\hspace{0.35cm} Django is a free and open source web application framework, written in Python, which follows the model-view-controller (MVC) architectural pattern.
+It's primary goal is to ease the creation of complex, database-driven websites which emphasizes reusability and pluggability of components, rapid development, and the principle of non-repetition. Python is used throughout, even for settings, files, and data models. The core Django framework can be seen as an MVC containing the following components:
+\begin{itemize}
+	\item \emph{Model:} It consists of an object-relational mapper which mediates between data models and a relational database.
+	\item \emph{View:} A system for processing requests with a web templating system.
+	\item \emph{Controller:} A regular-expression-based URL dispatcher.
+\end{itemize}
+
+\subsubsection*{The working of Django can be described in the following steps:}
+
+\begin{enumerate}
+	
+	\item \textbf{Designing the model:} Django gives you an automatically generated database access API. It has an object-relational mapper in which you describe your database layout in Python code. The migrate command looks at all your available models and automatically creates tables in your database for whichever tables don’t already exist
+
+	\item \textbf{Designing the URLs:} To design URLs for an app, we create a Python module which contains a simple mapping between URL patterns and \emph{Views}.
+	
+	\item \textbf{Writing the views:} A view retrieves data according to the parameters, loads a template and renders the template with the retrieved data.
+	
+	\item \textbf{Designing the templates:} A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted. Django defines a standard API for loading and rendering templates regardless of the backend.
+
+\end{enumerate}
+
+\subsection{Outlining Bodhitree}
+\hspace{0.35cm} Bodhitree is an online learning platform which is primarily aimed for education in India. In IIT Bombay, it is implemented as a SPOC (Small Private Online Course), which is a special version of a MOOC (Massive Open Online Course), that is used locally with on-campus students.
+
+\subsubsection*{List of modules in Bodhitree}
+
+\subsubsection*{\textit{Courseware}}
+It contains the courses that have been registered by the user and the content offered by those courses. It is composed of several other modules which define the content of each individual course. They are as follows:
+\begin{itemize}
+	\item \emph{Concept} contains the complete learning content offered by the course in the forms of videos, documents, etc.
+	\item \emph{Discussion forums} support the additions of new topics in the form of threads where users can post queries regarding the course and other users can comment on those queries. The forums are also equipped with a search and sort function and options such as subscription of a user to a thread and tagging of the related course content.
+	\item \emph{Progress} is an indicator of a students completion of a course. It is measured by the number of questions attempted by the student that were offered in the course content. It is categorized in the same way as the course content.
+	\item \emph{Assignments} are the part where the tasks are given to the students by the instructor which can be of the form of performing an experiment and deriving the results in the form of a report or more prominently deriving some scripts to perform a particular task. An interface to upload the reports, scripts and/or the relevant documents is provided. Deadlines can be put on this interface which limit the time within which the student has to finish the given task.\\
+	\textbf{Autograders} play an important role in the assignments wherein certain scripts uploaded by the students as the submission of an assignment can be automatically evaluated. As an example, the evaluation may be done by testing several output cases against the results obtained by running the script by using the same predefined input for both of them. Then the differences in the results can be compared to appropriately grade the students.
+\end{itemize}
+
+\subsubsection*{\textit{Videos}}
+\hspace{0.35cm} Videos are inherently the most important part of the course, so clearly the intention is to provide the best experience to the students so as to maximize the learning. The content of the videos are at the sole discretion of the instructor. Usually, the videos are presented in the form of slides along with audio to explain the content in the slides.
+\par There is a total control over the navigation functions of the videos. The user can adjust the speed, volume of the video. He can also click on the navigator to jump to any specific time in the video. A table of contents is also provided which lists the different contents that the video covers and which can be used to navigate between them.
+
+\subsubsection*{\textit{Quiz}}
+The quiz demands answers either of the form where the student has to check either of the options provided or some value has to be entered in the given textbox. It is essentially of two types: 
+\begin{itemize}
+	\item \emph{In-video quiz} is a short quiz which pops up when a student is watching the video when certain content is explained. It is related to what was just explained in the video. The video pauses at that point and resumes after the students attempts the quiz.
+	\item \emph{Out-video quiz} It is a detailed quiz which is kept as a separate part from the video. It may cover the entire content that has been explained during the course at that time.
+\end{itemize}

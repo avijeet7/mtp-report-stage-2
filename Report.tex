@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{tabu}
+\usepackage{booktabs}% for better rules in the table
+\usepackage[none]{hyphenat}
+\usepackage{microtype}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\abstractname}{\Large Abstract}
+
+\begin{document}
+%\bibliographystyle{plain}
+\begin{titlepage}
+{\centering     
+\large
+{\Large\textbf{E-learning platform development work: Bodhitree}}\\
+\vspace{1cm}
+\textbf{M.Tech. Project Stage I Report}\vspace{1cm} \\
+Submitted in partial fulfillment of the requirements\\
+for the degree of
+\vspace{.5cm} \\
+\textbf{Master of Technology}
+\vspace{1cm}
+\normalsize
+\\ \it{by} \\
+\vspace{.5cm}
+\rm
+{\large \textbf{Avijeet Gaikwad}}\\
+{\large \textbf {Roll No: 143050101}}
+
+\vspace{1cm}
+
+{\it{under the guidance of}} \\
+\vspace{.5cm}
+
+\hspace{.05cm} {\large \bf {Prof. Kameswari Chebrolu} \\ \it{and}  \\ \large \bf {Prof. Bhaskaran Raman}}\\
+\vspace {1cm}
+%\iitbseal\ \\
+
+\begin{figure}[h] 
+%\hspace{6cm}
+%\vspace{5cm}
+{\centering {\includegraphics[scale=2]{iitb.jpg}}\par}
+\end{figure}
+
+Department of Computer Science and Engineering \\ 
+Indian Institute of Technology, Bombay\\
+{\centering
+\hspace{7cm}Mumbai} 
+}
+\end{titlepage}
+\pagebreak
+\cleardoublepage
+\pagenumbering{roman}
+\include{abstract}
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+
+\include{Introduction}
+\newpage
+\input{DjangoBodhitree}
+\newpage
+\input{MarksModule}
+\newpage
+\input{AccessControl}
+\newpage
+\input{PrerequisitesGraph}
+\newpage
+%\input{Conclusion}
+\section*{Acknowledgements}
+I would like to thank my guides, Prof. Bhaskaran Raman and Prof. Kameswari Chebrolu for the consistent directions they have fed
+into my work, without which this work would have been nearly impossible. I would also like to thank Prasanth P for helping me during the initial learning of Django, React.js and the overall Bodhitree code.
+\newpage
+%\input{ref}
+
+%\nocite{Fox:2013:MS:2534706.2535918,7020256,6588857,ketamo2014learning,sivamuni2013assembling,sonwalkar2013first,yousefreview,yousef2014drives}
+%\bibliographystyle{plain}
+%\bibliography{Reference}
+
+\end{document}
