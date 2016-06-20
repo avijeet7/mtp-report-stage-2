@@ -27,7 +27,7 @@
 
 \hspace{0.35cm} The notifications system was designed using the push as well as the pull based mechanism. The course updates are pushed to the database and the user pull these updates whenever he logs into Bodhitree. The details of the system are as follows: 
 
-\subsubsection*{Storing the notifications (PUSH)}
+\subsubsection{Storing the notifications (PUSH)}
 
 \begin{enumerate}
 	\item Two database tables are created to store the notifications and map the updates to them to the users for specific courses.
@@ -46,7 +46,7 @@
 	\item A function \textbf{add\_new\_notice()} is created which takes the arguments: \textit{data, courseid} and \textit{url}. This function can be called during any update that occurs in a course to push the desired notification into the database.
 \end{enumerate}
 
-\subsubsection*{Retrieving the notifications (PULL)}
+\subsubsection{Retrieving the notifications (PULL)}
 
 \begin{enumerate}
 	\item An API \textbf{get\_notifications()} was created which fetches notifications for the current user by taking the courseid as an argument.
@@ -61,6 +61,52 @@
 	\end{figure}
 \end{enumerate}
 
-\subsubsection*{UI}
+\subsubsection{Notifications UI}
 
-\subsubsection*{Categorizing the notifications}
+\begin{enumerate}
+	\item The UI consists of the notifications indicator, the drop down list of notifications, and the detailed notifications page, as shown in figure \ref{fig:notifications_ui}
+	\item The notifications indicator is displayed as a leaf icon with a badge showing the number of pending notifications.
+	\item Clicking on the indicator opens a drop down list which shows the notifications in a categorised way.
+	\item There are two more buttons in the list to clear the notifications and see the detailed version which takes you to the detailed notifications page.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.3\linewidth]{./media/notifications_ui}
+		\caption{Notifications indicator along with the drop down list}
+		\label{fig:notifications_ui}
+	\end{figure}
+	\item The list shows the number of updates contained in each categories of notifications.
+	\item In the detailed view, all the notifications are shown which are interactive. Clicking on these notifications takes you to the corresponding updates.
+	\item The detailed notifications view is shown in figure \ref{fig:notifications_detailed}. Along with the interactive notifications, it also contains buttons to clear the notifications and to go on the previous page.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{./media/notifications_detailed}
+		\caption{Detailed notifications view}
+		\label{fig:notifications_detailed}
+	\end{figure}
+\end{enumerate}
+
+\subsubsection{Categorizing the notifications}
+
+\begin{enumerate}
+	\item Currently, the notifications are categorized into 6 groups:
+	\begin{enumerate}
+		\item Video added
+		\item Quiz added
+		\item Document added
+		\item Concept published
+		\item Discussion forum updates
+		\item Marks uploaded
+	\end{enumerate}
+	\item Figure \ref{fig:get_notifications} shows the data from the GET request. The grouping is done based on the \textit{``notice\_data''} field of each notification.
+	\item The first 3 letters are matched (Example: \textit{`Con'}, \textit{`Vid'}, \textit{'Doc'}, etc.) and then these notifications are pushed into their respective categories.
+	\item The hyperlink to the update is then added to an anchor tag  (\textit{\textless a href=...\textgreater}) and the interactive notification is then displayed on the detailed notification page.
+\end{enumerate}
+
+\subsubsection{Clearing the notifications}
+
+\begin{enumerate}
+	\item As already mentioned above, only those notifications that have their time greater than the time at which the current user has cleared the notifications will be fetched from the database.
+	\item The user can choose to clear the notifications by clicking on the \textit{Clear Notifications} button which is present on the drop down list of notifications as well as on the detailed notifications view.
+	\item On clicking on the clear button, the current time is added against the user's name in the \textit{clear\_time} field of the \textit{clearnotice} database table.
+	\item When the users fetches the notifications again, the notifications previous to the clearing time will not be displayed.
+\end{enumerate}

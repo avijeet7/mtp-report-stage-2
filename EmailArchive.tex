@@ -7,7 +7,7 @@
 \par Once the email has been sent, the instructor cannot view it. There is no way for the instructor to keep track of the emails sent by him. This makes it necessary to archive the emails sent through Bodhitree. It is also important to have an interface which allows the users to view the emails and to search through them.
 \par It is also helpful for the students who recive the emails, as they would be able to view the course specific emails sent to them on Bodhitree itself.
 
-\subsection{Specification}
+\subsection{Specifications}
 
 The specifications were provided by the users of Bodhitree which consist of archiving the emails and providing an interface to view the archived emails. The details are as follows:
 
@@ -41,7 +41,7 @@ The specifications were provided by the users of Bodhitree which consist of arch
 
 Several design decision were taken in the backend and for the user interface to fulfil the requirements as well as to ensure optimum usability.
 
-\subsubsection*{Archiving the emails}
+\subsubsection{Archiving the emails}
 
 \begin{enumerate}
 	\item A new function \textbf{archive\_mail()} was created to store the contents of the email into the database. This function is called whenever and email is being sent to the users using the \textbf{send\_mail\_to\_students()} function.
@@ -51,7 +51,7 @@ Several design decision were taken in the backend and for the user interface to 
 \end{enumerate}
 
 
-\subsubsection*{Displaying the archived emails}
+\subsubsection{Displaying the archived emails}
 
 \begin{enumerate}
 	\item An API has been created which checks whether the current user is an \textit{Instructor} or a \textit{Student} and then fetches the relevant emails. The \textbf{GetEmails} API can be accessed by the url:
@@ -68,7 +68,7 @@ Several design decision were taken in the backend and for the user interface to 
 \label{fig:get_emails}
 \end{figure}
 
-\subsubsection*{UI for viewing the emails}
+\subsubsection{UI for viewing the emails}
 
 \begin{enumerate}
 	\item React.js was used to create a component based design for viewing the archived emails. The emails are sorted such that the most recent will appear first.
@@ -84,7 +84,7 @@ Several design decision were taken in the backend and for the user interface to 
 \label{fig:ea_ui}
 \end{figure}
 
-\subsubsection*{Search and filter functions}
+\subsubsection{Search and filter functions}
 
 \begin{enumerate}
 	\item An expandable container is present which contains the searchbox and date filter. 
@@ -94,6 +94,6 @@ Several design decision were taken in the backend and for the user interface to 
 
 \subsection{Future Work}
 
-\subsubsection*{Pagination}
+\subsubsection{Pagination}
 
 \hspace{0.35cm} Currently, all the emails are fetched using one database request and all of them are displayed on the email archive page. When the instructor sends a huge number of emails in a course, the list of emails will become undesirably long. In this case, there is need to paginate the results and display a certain amount of emails per page. The pages can also be fetched as and when requested.
